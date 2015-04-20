@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database name="polaros" defaultIdMethod="native">
+  <table name="users" phpName="User">
+    <column name="id" type="integer" required="true" primaryKey="true" autoIncrement="true"/>
+    <column name="login" type="varchar" size="100" required="true"/>
+    <column name="password" type="varchar" size="255" required="true" />
+    <column name="email" type="varchar" size="255" required="true" />
+    <column name="first_name" type="varchar" size="255" required="false" />
+    <column name="last_name" type="varchar" size="255" required="false" />
+    <column name="background" type="varchar" size="255" required="false" />
+    <column name="skype" type="varchar" size="100" required="false" />
+    <column name="icq" type="varchar" size="15" required="false" />
+    <column name="github" type="varchar" size="200" required="false" />\
+    <behavior name="validate">
+      <parameter name="rule1" value="{column: login, validator: Unique}" />
+      <parameter name="rule2" value="{column: email, validator: Unique}" />
+      <parameter name="rule3" value="{column: email, validator: Email}" />
+    </behavior>
+    <unique>
+      <unique-column name="login"/>
+      <unique-column name="email"/>
+    </unique>
+  </table>
+  <table name="windows" phpName="Window">
+    <column name="id" type="integer" required="true" primaryKey="true" autoIncrement="true"/>
+    <column name="src" type="varchar" size="255" required="true" />
+    <column name="title" type="varchar" size="255" required="true" />
+    <column name="_left" phpName="left" type="integer" required="true" />
+    <column name="top" type="integer" required="true" />
+    <column name="width" type="integer" required="false" />
+    <column name="height" type="integer" required="false" />
+    <column name="is_min" type="boolean" required="false" />
+    <column name="is_max" type="boolean" required="false" />
+    <column name="user_id" type="integer" required="false" />
+    <column name="UI" type="boolean" required="false" />
+    <column name="secureKey" type="boolean" required="false" />
+    <column name="icon" type="varchar" size="255" required="false" />
+  </table>
+  <table name="apps" phpName="App">
+    <column name="id" type="integer" required="true" primaryKey="true" autoIncrement="true"/>
+    <column name="src" type="varchar" size="255" required="true" />
+    <column name="name" type="integer" required="true" />
+  </table>
+  <table name="labels" phpName="Label">
+    <column name="id" type="integer" required="true" primaryKey="true" autoIncrement="true"/>
+    <column name="_left" phpName="left" type="integer"  required="true" />
+    <column name="top" type="integer" required="true" />
+    <column name="title" type="varchar" size="255" required="true" />
+    <column name="icon" type="varchar" size="255" required="false" />
+    <column name="app_id" type="integer" required="false" />
+    <column name="user_id" type="integer" required="false" />
+  </table>
+</database>

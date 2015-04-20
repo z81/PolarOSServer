@@ -1,0 +1,9 @@
+{
+    "require": {
+        "cboden/ratchet": "0.3.*",
+        "propel/propel": "~2.0@dev"
+    },
+    "autoload": {
+	    "classmap": ["generated-classes/"]
+	}
+}
