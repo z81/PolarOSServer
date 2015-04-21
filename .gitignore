@@ -1,6 +1,7 @@
 *.db
 node_modules/*
 generated-sql/*
+vendor/*
 .idea
 *.sublime-project
 *.sublime-workspace
